@@ -51,7 +51,7 @@ for j in range(2):
 
     page.wait_for_selector('#vuejs')
     home_page_text=page.locator('#vuejs').all_inner_texts()
-    f=open(f'{user_type_name}/{page.title()}','w')
+    f=open(f'Scraped Data/{user_type_name}/{page.title()}','w')
     f.write(home_page_text[0])
     f.close()
 
@@ -89,7 +89,7 @@ for j in range(2):
                         page_title=page.title() 
 
                         if len(text)>0:     #if the text content is available 
-                            f=open(f'{user_type_name}/{core_menu[i-1]}/{page_title}','w') #create new file and append contents
+                            f=open(f'Scraped Data/{user_type_name}/{core_menu[i-1]}/{page_title}','w') #create new file and append contents
                             f.write(text[0])
                         else:
                             page.goto(user_type_url)    # else go back 
