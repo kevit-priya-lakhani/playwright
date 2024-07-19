@@ -1,41 +1,14 @@
 
 from playwright.sync_api import sync_playwright
-import time
 from playwright_stealth import stealth_sync
 import re
+from config import *
 
+browser, context, page = setup_playwright()
 
+site_user = get_site_user()
 
-playwright=sync_playwright().start()
-
-
-browser=playwright.chromium.launch(headless=False, slow_mo=500)
-
-extra_headers = {
-    'Sec-Ch-Ua':
-    '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
-    'Sec-Ch-Ua-Mobile':
-    '?0',
-    'Sec-Ch-Ua-Platform':
-    "Linux",
-    'Sec-Fetch-Dest':
-    'empty',
-    'Sec-Fetch-Mode':
-    'cors',
-    'Sec-Fetch-Site':
-    'same-site',
-    }
-
-user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0'
-
-context = browser.new_context(extra_http_headers = extra_headers,user_agent=user_agent)
-page = context.new_page()
-stealth_sync(page)
-
-
-
-site_user={'Home':'https://www.delta.nl/','Companies':'https://www.delta.nl/zakelijk/'}
-main_menu_last=[4,5]
+main_menu_last = get_main_menu_last()
 
 #loop for at home and companies sites
 
