@@ -10,13 +10,12 @@ This project contains a Python script that uses Playwright to scrape the entire 
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Notes](#notes)
-- [License](#license)
+
 
 ## Requirements
 
 - Python 3.8+
 - Playwright
-- asyncio
 
 ## Installation
 
